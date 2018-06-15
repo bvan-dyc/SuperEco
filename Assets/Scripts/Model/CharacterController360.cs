@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterController : MonoBehaviour {
+
+
+
+public class CharacterController360 : MonoBehaviour {
 	[SerializeField] [Range(0, 50)] private float	speed;
 	private Rigidbody2D rbody;
 

@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class UserControl : MonoBehaviour
 {
-	CharacterController character;
-	bool enabledControl;
+	CharacterController360 character;
+	bool enabledControl = true;
 
 	private void Awake()
 	{
@@ -14,9 +15,12 @@ public class UserControl : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-		Vector2 movement = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+		if (enabledControl)
+		{
+			Vector2 movement = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
-		character.Move(movement);
+			character.Move(movement);
+		}
 	}
 
 	public void enableControl()
