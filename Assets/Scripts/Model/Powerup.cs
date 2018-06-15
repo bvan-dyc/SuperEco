@@ -9,7 +9,7 @@ public class Powerup : MonoBehaviour {
 		if (other.tag == "Player")
 		{
 			other.GetComponent<CharacterController360>().Powerup();
-			Destroy(gameObject);
+			Object.Destroy(gameObject);
 		}
 	}
 }

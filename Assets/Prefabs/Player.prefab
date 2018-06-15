@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4957729581135862}
   - component: {fileID: 212807967320163024}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 114511618526988672}
   - component: {fileID: 61789047242222472}
   - component: {fileID: 50818326674157902}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &61789047242222472
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -141,6 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2491619da50e66041b88544879b5e685, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerID: 1
 --- !u!212 &212807967320163024
 SpriteRenderer:
   m_ObjectHideFlags: 1
