@@ -10,7 +10,7 @@ public class UserControl : MonoBehaviour
 
 	private void Awake()
 	{
-		character = GetComponent<CharacterController>();
+		character = GetComponent<CharacterController360>();
 	}
 
 	private void FixedUpdate()
