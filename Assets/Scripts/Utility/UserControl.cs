@@ -5,8 +5,9 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class UserControl : MonoBehaviour
 {
-	public int playerID;
+	[SerializeField] private int playerID;
 	public bool enabledControl = true;
+
 	private CharacterController360 character;
 
 	private void Awake()
@@ -16,6 +17,7 @@ public class UserControl : MonoBehaviour
 
 	private void FixedUpdate()
 	{
+		Debug.Log(Input.GetJoystickNames());
 		if (enabledControl)
 		{
 			Vector2 movement = new Vector2(CrossPlatformInputManager.GetAxis("P" + playerID + "_Horizontal"),

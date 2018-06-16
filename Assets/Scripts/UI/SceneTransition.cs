@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneTransition : MonoBehaviour {
 
-	public string TransitionTo;
+	[SerializeField] private string TransitionTo;
 
 	public void Transition()
 	{
