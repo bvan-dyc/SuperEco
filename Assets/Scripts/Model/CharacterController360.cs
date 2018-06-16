@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CharacterController360 : MonoBehaviour {
-	[SerializeField] [Range(0, 50)] private float	speed;
+	[Range(0, 50)] public float	speed;
 	private Rigidbody2D rbody;
 
 	public void Awake()
@@ -14,10 +14,5 @@ public class CharacterController360 : MonoBehaviour {
 	public void Move(Vector2 movement)
 	{
 		rbody.velocity = movement * speed;
-	}
-
-	public void Powerup()
-	{
-		speed *= 2;
 	}
 }

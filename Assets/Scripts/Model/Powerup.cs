@@ -8,8 +8,9 @@ public class Powerup : MonoBehaviour {
 	{
 		if (other.tag == "Player")
 		{
-			other.GetComponent<CharacterController360>().Powerup();
+			other.GetComponent<PlayerCharacter>().Powerup();
 			Object.Destroy(gameObject);
 		}
 	}
 }
+
