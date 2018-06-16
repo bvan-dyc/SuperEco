@@ -23,7 +23,7 @@ public class RandomSpawn : MonoBehaviour {
 		toSpawn = ItemRoller();
 		Collider2D collider = toSpawn.GetComponent<Collider2D>();
 		Vector3 spawnPosition = getRandomPosition(collider);
-		GameObject enemyInstance = Instantiate(toSpawn, spawnPosition, transform.rotation);
+		Instantiate(toSpawn, spawnPosition, transform.rotation);
 	}
 
 	private GameObject ItemRoller()

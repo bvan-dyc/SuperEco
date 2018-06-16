@@ -9,9 +9,12 @@ public class PlayerCharacter : MonoBehaviour {
 	[SerializeField] [Range(0, 10)] float knockbackDistance = 2f;
 	public string isPressed = "";
 
-	[SerializeField] private List<string> inventoryX;
-	[SerializeField] private List<string> inventoryY;
-	[SerializeField] private List<string> inventoryB;
+	[SerializeField] private List<GameObject> inventoryX;
+	[SerializeField] private List<GameObject> inventoryY;
+	[SerializeField] private List<GameObject> inventoryB;
+	[SerializeField] private Transform XSpawn;
+	[SerializeField] private Transform YSpawn;
+	[SerializeField] private Transform BSpawn;
 
 	public int				score = 0;
 	private Vector2			knockbackDirection;
@@ -60,18 +63,50 @@ public class PlayerCharacter : MonoBehaviour {
 		if (other.gameObject.tag == "Item")
 		{
 			if (isPressed == "X") {
-				inventoryX.Add(other.gameObject.name);
-				Destroy(other.gameObject);
+				other.gameObject.transform.position = XSpawn.position;
+				inventoryX.Add(other.gameObject);
 			}
 			if (isPressed == "Y") {
-				inventoryY.Add(other.gameObject.name);
-				Destroy(other.gameObject);
+				other.gameObject.transform.position = YSpawn.position;
+				inventoryY.Add(other.gameObject);
 			}
 			if (isPressed == "B") {
-				inventoryB.Add(other.gameObject.name);
-				Destroy(other.gameObject);
+				other.gameObject.transform.position = BSpawn.position;
+				inventoryB.Add(other.gameObject);
+			}
+		}
+		if (other.gameObject.tag == "Container")
+		{
+			if (isPressed == "X")
+			{
+				if (inventoryX.Count > 0)
+				{
+
+					AddScore(inventoryX[0].GetComponent<Item>().score);
+					inventoryX.RemoveAt(0);
+				}
+				isPressed = "";
+			}
+			if (isPressed == "Y")
+			{
+				if (inventoryY.Count > 0)
+				{
+					AddScore(inventoryX[0].GetComponent<Item>().score);
+					inventoryY.RemoveAt(0);
+				}
+				isPressed = "";
+			}
+			if (isPressed == "B")
+			{
+				if (inventoryB.Count > 0)
+				{
+					AddScore(inventoryX[0].GetComponent<Item>().score);
+					inventoryB.RemoveAt(0);
+				}
+				isPressed = "";
 			}
 		}
 	}
+
 }
 
