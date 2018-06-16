@@ -81,7 +81,6 @@ public class PlayerCharacter : MonoBehaviour {
 			{
 				if (inventoryX.Count > 0)
 				{
-
 					AddScore(inventoryX[0].GetComponent<Item>().score);
 					inventoryX.RemoveAt(0);
 				}
@@ -91,7 +90,7 @@ public class PlayerCharacter : MonoBehaviour {
 			{
 				if (inventoryY.Count > 0)
 				{
-					AddScore(inventoryX[0].GetComponent<Item>().score);
+					AddScore(inventoryY[0].GetComponent<Item>().score);
 					inventoryY.RemoveAt(0);
 				}
 				isPressed = "";
@@ -100,7 +99,7 @@ public class PlayerCharacter : MonoBehaviour {
 			{
 				if (inventoryB.Count > 0)
 				{
-					AddScore(inventoryX[0].GetComponent<Item>().score);
+					AddScore(inventoryB[0].GetComponent<Item>().score);
 					inventoryB.RemoveAt(0);
 				}
 				isPressed = "";
