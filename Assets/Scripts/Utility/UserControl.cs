@@ -20,7 +20,6 @@ public class UserControl : MonoBehaviour
 		{
 			Vector2 movement = new Vector2(CrossPlatformInputManager.GetAxis("P" + playerID + "_Horizontal"),
 				CrossPlatformInputManager.GetAxis("P" + playerID + "_Vertical"));
-
 			character.Move(movement);
 		}
 	}
