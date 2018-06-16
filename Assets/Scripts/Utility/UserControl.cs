@@ -8,21 +8,49 @@ public class UserControl : MonoBehaviour
 	[SerializeField] private int playerID;
 	public bool enabledControl = true;
 
-	private CharacterController360 character;
+	private CharacterController360 ccontroller;
+	private PlayerCharacter pc;
 
 	private void Awake()
 	{
-		character = GetComponent<CharacterController360>();
+		ccontroller = GetComponent<CharacterController360>();
+		pc = GetComponent<PlayerCharacter>();
+	}
+
+	private void Update()
+	{
+		getcurrentPress();
 	}
 
 	private void FixedUpdate()
 	{
-		Debug.Log(Input.GetJoystickNames());
 		if (enabledControl)
 		{
 			Vector2 movement = new Vector2(CrossPlatformInputManager.GetAxis("P" + playerID + "_Horizontal"),
 				CrossPlatformInputManager.GetAxis("P" + playerID + "_Vertical"));
-			character.Move(movement);
+			ccontroller.Move(movement);
+		}
+	}
+
+	private void getcurrentPress()
+	{
+		if (CrossPlatformInputManager.GetButtonDown("P" + playerID + "_Fire3")) {
+			pc.isPressed = "X";
+		}
+		else if (CrossPlatformInputManager.GetButtonDown("P" + playerID + "_Fire2")) {
+			pc.isPressed = "B";
+		}
+		else if (CrossPlatformInputManager.GetButtonDown("P" + playerID + "_Fire4")) {
+			pc.isPressed = "Y";
+		}
+		if (CrossPlatformInputManager.GetButtonUp("P" + playerID + "_Fire3")) {
+			pc.isPressed = "";
+		}
+		else if (CrossPlatformInputManager.GetButtonUp("P" + playerID + "_Fire2")) {
+			pc.isPressed = "";
+		}
+		else if (CrossPlatformInputManager.GetButtonUp("P" + playerID + "_Fire4")) {
+			pc.isPressed = "";
 		}
 	}
 

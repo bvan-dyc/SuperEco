@@ -38,8 +38,8 @@ GameObject:
   - component: {fileID: 61415534255812000}
   - component: {fileID: 114118585857989930}
   m_Layer: 8
-  m_Name: LPink
-  m_TagString: Untagged
+  m_Name: Pink
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5bd848624c0ba64b9a68152a16607b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 1
+  score: 5
 --- !u!212 &212665815404801424
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -144,7 +144,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1d05b4efb2d2d5d42bfb5e20eed7a547, type: 3}
-  m_Color: {r: 1, g: 0, b: 0.7319846, a: 1}
+  m_Color: {r: 1, g: 0, b: 0.45336103, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

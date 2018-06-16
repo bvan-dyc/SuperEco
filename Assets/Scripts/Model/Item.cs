@@ -10,7 +10,7 @@ public class Item : MonoBehaviour {
 		if (other.tag == "Player")
 		{
 			other.GetComponent<PlayerCharacter>().AddScore(score);
-			Object.Destroy(gameObject);
+			//gameObject.SetActive(false);
 		}
 	}
 }

@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-
 public class RandomSpawn : MonoBehaviour {
 	[SerializeField] private GameObject[] items;
 	[SerializeField] private float[] spawnRates;

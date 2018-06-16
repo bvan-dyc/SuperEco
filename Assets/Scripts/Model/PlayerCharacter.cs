@@ -7,10 +7,16 @@ using TMPro;
 public class PlayerCharacter : MonoBehaviour {
 	[SerializeField] [Range(0, 1)] float knockbackDuration = 0.3f;
 	[SerializeField] [Range(0, 10)] float knockbackDistance = 2f;
-	public int score = 0;
-	private Vector2 knockbackDirection;
-	private Rigidbody2D rb;
-	public TextMeshProUGUI scoreText;
+	public string isPressed = "";
+
+	[SerializeField] private List<string> inventoryX;
+	[SerializeField] private List<string> inventoryY;
+	[SerializeField] private List<string> inventoryB;
+
+	public int				score = 0;
+	private Vector2			knockbackDirection;
+	private Rigidbody2D		rb;
+	public TextMeshProUGUI	scoreText;
 
 	private void Awake()
 	{
@@ -46,6 +52,25 @@ public class PlayerCharacter : MonoBehaviour {
 			Vector2 dir = new Vector2(other.transform.position.x - transform.position.x, other.transform.position.y - transform.position.y);
 			dir = -dir.normalized;
 			Knockback(dir);
+		}
+	}
+
+	void OnTriggerStay2D(Collider2D other)
+	{
+		if (other.gameObject.tag == "Item")
+		{
+			if (isPressed == "X") {
+				inventoryX.Add(other.gameObject.name);
+				Destroy(other.gameObject);
+			}
+			if (isPressed == "Y") {
+				inventoryY.Add(other.gameObject.name);
+				Destroy(other.gameObject);
+			}
+			if (isPressed == "B") {
+				inventoryB.Add(other.gameObject.name);
+				Destroy(other.gameObject);
+			}
 		}
 	}
 }

@@ -22,8 +22,8 @@ GameObject:
   - component: {fileID: 61879465365813364}
   - component: {fileID: 114928003314363922}
   m_Layer: 8
-  m_Name: Pink
-  m_TagString: Untagged
+  m_Name: Green
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5bd848624c0ba64b9a68152a16607b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 1
+  score: 5
 --- !u!212 &212424695365997338
 SpriteRenderer:
   m_ObjectHideFlags: 1
