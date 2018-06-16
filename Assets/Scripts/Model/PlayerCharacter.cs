@@ -5,7 +5,6 @@ using DG.Tweening;
 using TMPro;
 
 public class PlayerCharacter : MonoBehaviour {
-	[SerializeField] [Range(0, 10)] float repelForce = 3;
 	[SerializeField] [Range(0, 1)] float knockbackDuration = 0.3f;
 	[SerializeField] [Range(0, 10)] float knockbackDistance = 2f;
 	public int score = 0;
@@ -20,7 +19,8 @@ public class PlayerCharacter : MonoBehaviour {
 
 	private void Update()
 	{
-		scoreText.text = score.ToString("000");
+		if (scoreText)
+			scoreText.text = score.ToString("000");
 	}
 
 	private void Knockback(Vector2 direction)
