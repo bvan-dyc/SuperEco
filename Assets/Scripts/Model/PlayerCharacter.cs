@@ -1,8 +1,7 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
 using System.Collections.Generic;
-using UnityEngine;
-using DG.Tweening;
 using TMPro;
+using UnityEngine;
 
 public class PlayerCharacter : MonoBehaviour {
 	[SerializeField] [Range(0, 1)] float knockbackDuration = 0.3f;
@@ -12,6 +11,7 @@ public class PlayerCharacter : MonoBehaviour {
 	[SerializeField] private List<GameObject> inventoryX;
 	[SerializeField] private List<GameObject> inventoryY;
 	[SerializeField] private List<GameObject> inventoryB;
+	[SerializeField] [Range(0, 20)] private int inventorySize = 6;
 	[SerializeField] private Transform XSpawn;
 	[SerializeField] private Transform YSpawn;
 	[SerializeField] private Transform BSpawn;
@@ -62,47 +62,55 @@ public class PlayerCharacter : MonoBehaviour {
 	{
 		if (other.gameObject.tag == "Item")
 		{
-			if (isPressed == "X") {
+			if (isPressed == "X" && inventoryX.Count < inventorySize) {
 				other.gameObject.transform.position = XSpawn.position;
+				other.gameObject.GetComponent<Item>().Hold();
 				inventoryX.Add(other.gameObject);
 			}
-			if (isPressed == "Y") {
+			if (isPressed == "Y" && inventoryY.Count < inventorySize) {
 				other.gameObject.transform.position = YSpawn.position;
+				other.gameObject.GetComponent<Item>().Hold();
 				inventoryY.Add(other.gameObject);
 			}
-			if (isPressed == "B") {
+			if (isPressed == "B" && inventoryB.Count < inventorySize) {
 				other.gameObject.transform.position = BSpawn.position;
+				other.gameObject.GetComponent<Item>().Hold();
 				inventoryB.Add(other.gameObject);
 			}
 		}
 		if (other.gameObject.tag == "Container")
 		{
+
 			if (isPressed == "X")
 			{
-				RemoveFromInventory(inventoryX);
+				RemoveFromInventory(inventoryX, other.gameObject.name);
 				isPressed = "";
 			}
 			if (isPressed == "Y")
 			{
-				RemoveFromInventory(inventoryY);
+				RemoveFromInventory(inventoryY, other.gameObject.name);
 				isPressed = "";
 			}
 			if (isPressed == "B")
 			{
-				RemoveFromInventory(inventoryB);
+				RemoveFromInventory(inventoryB, other.gameObject.name);
 				isPressed = "";
 			}
 		}
 	}
 
-	private void RemoveFromInventory(List<GameObject> inventory)
+	private void RemoveFromInventory(List<GameObject> inventory, string binName)
 	{
 		if (inventory.Count > 0)
 		{
-			AddScore(inventory[0].GetComponent<Item>().score);
+			if (binName == inventory[0].GetComponent<Item>().destination)
+			{
+				AddScore(inventory[0].GetComponent<Item>().scoreBonus);
+			}
+			else
+				AddScore(inventory[0].GetComponent<Item>().scoreMalus);
 			Destroy(inventory[0]);
 			inventory.RemoveAt(0);
 		}
 	}
 }
-
