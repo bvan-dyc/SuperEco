@@ -79,33 +79,30 @@ public class PlayerCharacter : MonoBehaviour {
 		{
 			if (isPressed == "X")
 			{
-				if (inventoryX.Count > 0)
-				{
-					AddScore(inventoryX[0].GetComponent<Item>().score);
-					inventoryX.RemoveAt(0);
-				}
+				RemoveFromInventory(inventoryX);
 				isPressed = "";
 			}
 			if (isPressed == "Y")
 			{
-				if (inventoryY.Count > 0)
-				{
-					AddScore(inventoryY[0].GetComponent<Item>().score);
-					inventoryY.RemoveAt(0);
-				}
+				RemoveFromInventory(inventoryY);
 				isPressed = "";
 			}
 			if (isPressed == "B")
 			{
-				if (inventoryB.Count > 0)
-				{
-					AddScore(inventoryB[0].GetComponent<Item>().score);
-					inventoryB.RemoveAt(0);
-				}
+				RemoveFromInventory(inventoryB);
 				isPressed = "";
 			}
 		}
 	}
 
+	private void RemoveFromInventory(List<GameObject> inventory)
+	{
+		if (inventory.Count > 0)
+		{
+			AddScore(inventory[0].GetComponent<Item>().score);
+			Destroy(inventory[0]);
+			inventory.RemoveAt(0);
+		}
+	}
 }
 
