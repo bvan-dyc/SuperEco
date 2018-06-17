@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4543790559043306}
   - component: {fileID: 212424722831520886}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 61892410150049582}
   - component: {fileID: 114713048862375706}
   - component: {fileID: 50376697195379840}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bottle
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4065861458357132}
   - component: {fileID: 61525359958649330}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,7 +81,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1287558867379936}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.189664, y: -12.071387, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4543790559043306}
@@ -128,7 +128,7 @@ BoxCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1804983061581120}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -183,13 +183,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5bd848624c0ba64b9a68152a16607b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreBonus: 3
-  scoreMalus: 5
-  destination: BlackBin
+  scoreBonus: 70
+  scoreMalus: 35
+  destination: GreenBin
   simulated: 0
   spawnDuration: 0.2
   speed: 5
-  colliderObject: {fileID: 1804983061581120}
+  scaleTo: 1.5
 --- !u!212 &212424722831520886
 SpriteRenderer:
   m_ObjectHideFlags: 1

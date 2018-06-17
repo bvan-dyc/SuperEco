@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4110903800900772}
   - component: {fileID: 212665815404801424}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4638950962282138}
   - component: {fileID: 61788375705330972}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 61415534255812000}
   - component: {fileID: 114118585857989930}
   - component: {fileID: 50367262059227658}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Robot
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1874818432923214}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.189664, y: -12.071387, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4110903800900772}
@@ -153,7 +153,7 @@ BoxCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1770972768369332}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -183,13 +183,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5bd848624c0ba64b9a68152a16607b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreBonus: 5
-  scoreMalus: 4
+  scoreBonus: 100
+  scoreMalus: 60
   destination: BlackBin
   simulated: 0
   spawnDuration: 0.2
   speed: 5
-  colliderObject: {fileID: 1770972768369332}
+  scaleTo: 1.5
 --- !u!212 &212665815404801424
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -27,20 +27,22 @@ public class PlayerCharacter : MonoBehaviour {
 
 	public int			score = 0;
 	public bool			isWinning = false;
-	[SerializeField] private int scoreMultiplier = 1;
-	public bool			isUpped = false;
+	[SerializeField] private int	scoreMultiplier = 1;
+	public bool						isUpped = false;
 
 	private Vector2			knockbackDirection;
 	private Rigidbody2D		rb;
 	private AudioSource		playerAS;
 	private Indicator		indicator;
 	private float			timer = 0f;
+	private float			savedSpeed;
 
 	private void Awake()
 	{
 		rb = GetComponent<Rigidbody2D>();
 		indicator = GetComponent<Indicator>();
 		playerAS = GetComponent<AudioSource>();
+		savedSpeed = GetComponent<CharacterController360>().speed;
 	}
 
 	private void Update()
@@ -49,6 +51,8 @@ public class PlayerCharacter : MonoBehaviour {
 			timer -= Time.deltaTime;
 		if (timer < 0)
 		{
+			GetComponent<CharacterController360>().speed = savedSpeed;
+			scoreMultiplier = 1;
 			isUpped = false;
 		}
 		if (scoreText)

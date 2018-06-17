@@ -6,7 +6,7 @@ public class CharacterController360 : MonoBehaviour {
 	[Range(0, 50)] public float	speed;
 	private Rigidbody2D rbody;
 	[SerializeField] private Animator anim;
-	[SerializeField] private float epsilon = 0.3f;
+	[SerializeField] private float epsilon = 0f;
 
 	public void Awake()
 	{
@@ -25,13 +25,13 @@ public class CharacterController360 : MonoBehaviour {
 	{
 		anim.SetBool("isWalking", true);
 		rbody.velocity = movement * speed;
-		if (movement.y >= epsilon)
-			anim.SetTrigger("faceNorth");
+		if (movement.y > epsilon)
+			anim.SetInteger("Direction", 0);
 		else if (movement.y < epsilon)
-			anim.SetTrigger("faceSouth");
-		else if (movement.x <= epsilon)
-			anim.SetTrigger("faceLeft");
+			anim.SetInteger("Direction", 1);
+		else if (movement.x < epsilon)
+			anim.SetInteger("Direction", 3);
 		else if (movement.x > epsilon)
-			anim.SetTrigger("faceRight");
+			anim.SetInteger("Direction", 4);
 	}
 }

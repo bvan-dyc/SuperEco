@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour {
 		canvas.SetActive(true);
 	}
 
-	private void Start()
+	private void Update()
 	{
 		if (player1.score < player2.score)
 		{
