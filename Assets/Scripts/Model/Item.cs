@@ -12,14 +12,11 @@ public class Item : MonoBehaviour {
 	[SerializeField] private float	spawnDuration = 0.2f;
 	[Range(0, 50)] public float		speed = 5;
 	[Range(0, 5)] [SerializeField] private float	scaleTo = 1.5f;
-	[SerializeField] private GameObject	colliderObject;
 
-	private Collider2D c2d;
 	private Rigidbody2D rb;
 
 	public void Awake() {
 		rb = GetComponent<Rigidbody2D>();
-		c2d = colliderObject.GetComponent<Collider2D>();
 		transform.DOScale(0,0);
 	}
 
@@ -39,6 +36,5 @@ public class Item : MonoBehaviour {
 
 	public void Hold() {
 		simulated = true;
-		c2d.enabled = true;
 	}
 }

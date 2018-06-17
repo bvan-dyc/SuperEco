@@ -1,11 +1,10 @@
 fileFormatVersion: 2
-guid: 0bc4abb86b4573742b10463d605eacfa
+guid: 236fc2bfa86b5d441a4f1b07d5f297bb
 TextureImporter:
   fileIDToRecycleName:
-    21300000: vue_profilgauche_0
-    21300002: vue_profilgauche_1
-    21300004: vue_profilgauche_2
-    21300006: vue_profilgauche_3
+    21300000: poulpy2_0
+    21300002: poulpy2_1
+    21300004: poulpy2_2
   externalObjects: {}
   serializedVersion: 5
   mipmaps:
@@ -86,7 +85,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: vue_profilgauche_0
+      name: poulpy2_0
       rect:
         serializedVersion: 2
         x: 0
@@ -100,13 +99,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4ed098d8655580746b80435b8258b60b
+      spriteID: a4abf1049206e4b418f9d918a8dbda8d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: vue_profilgauche_1
+      name: poulpy2_1
       rect:
         serializedVersion: 2
         x: 310
@@ -120,13 +119,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5cc22f4de8e5e24499010d2ee590b134
+      spriteID: 18b6fab5606cbe041a52d39a65195977
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: vue_profilgauche_2
+      name: poulpy2_2
       rect:
         serializedVersion: 2
         x: 0
@@ -140,27 +139,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a29bed0e45dd6840b8a9fa2219b9a74
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: vue_profilgauche_3
-      rect:
-        serializedVersion: 2
-        x: 310
-        y: 0
-        width: 310
-        height: 310
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1b4ea749f81501147946a1eb31a97b2b
+      spriteID: d0a3a8021f19f674a8f5e9d28fa35bf1
       vertices: []
       indices: 
       edges: []
@@ -168,7 +147,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 3cc474f9b378c0942b4af58e955dcea1
+    spriteID: 3ce1888abffa6224f8f30b4361e21568
     vertices: []
     indices: 
     edges: []

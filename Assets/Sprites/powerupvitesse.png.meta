@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 0bc4abb86b4573742b10463d605eacfa
+guid: 6dc0026e5895c0d46b2725671c02cf21
 TextureImporter:
   fileIDToRecycleName:
-    21300000: vue_profilgauche_0
-    21300002: vue_profilgauche_1
-    21300004: vue_profilgauche_2
-    21300006: vue_profilgauche_3
+    21300000: powerupvitesse_0
+    21300002: powerupvitesse_1
+    21300004: powerupvitesse_2
+    21300006: powerupvitesse_3
   externalObjects: {}
   serializedVersion: 5
   mipmaps:
@@ -86,13 +86,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: vue_profilgauche_0
+      name: powerupvitesse_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 310
-        width: 310
-        height: 310
+        y: 210
+        width: 210
+        height: 210
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -100,19 +100,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4ed098d8655580746b80435b8258b60b
+      spriteID: 94b256b9810ca8847806010155143688
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: vue_profilgauche_1
+      name: powerupvitesse_1
       rect:
         serializedVersion: 2
-        x: 310
-        y: 310
-        width: 310
-        height: 310
+        x: 210
+        y: 210
+        width: 210
+        height: 210
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -120,19 +120,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5cc22f4de8e5e24499010d2ee590b134
+      spriteID: ec26a75120e2d14469e8d18a7b9e8a21
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: vue_profilgauche_2
+      name: powerupvitesse_2
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 310
-        height: 310
+        width: 210
+        height: 210
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,19 +140,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a29bed0e45dd6840b8a9fa2219b9a74
+      spriteID: 180ab823ccbd0fa48876ca6a998b2138
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: vue_profilgauche_3
+      name: powerupvitesse_3
       rect:
         serializedVersion: 2
-        x: 310
+        x: 210
         y: 0
-        width: 310
-        height: 310
+        width: 210
+        height: 210
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,7 +160,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b4ea749f81501147946a1eb31a97b2b
+      spriteID: 6d02862437f810c47b0928fd74035c7e
       vertices: []
       indices: 
       edges: []
@@ -168,7 +168,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 3cc474f9b378c0942b4af58e955dcea1
+    spriteID: b263d343a6178eb499bc4df4eee1008d
     vertices: []
     indices: 
     edges: []

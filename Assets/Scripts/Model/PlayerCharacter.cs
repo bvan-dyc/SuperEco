@@ -15,6 +15,7 @@ public class PlayerCharacter : MonoBehaviour {
 	[SerializeField] private Transform XSpawn;
 	[SerializeField] private Transform YSpawn;
 	[SerializeField] private Transform BSpawn;
+	[SerializeField] private SpriteRenderer Crown;
 	[SerializeField] private TextMeshProUGUI scoreText;
 
 	[SerializeField] private AudioClip takeAudio;
@@ -24,11 +25,16 @@ public class PlayerCharacter : MonoBehaviour {
 
 	[SerializeField] private float scaleDuration;
 
-	public int				score = 0;
+	public int			score = 0;
+	public bool			isWinning = false;
+	[SerializeField] private int scoreMultiplier = 1;
+	public bool			isUpped = false;
+
 	private Vector2			knockbackDirection;
 	private Rigidbody2D		rb;
 	private AudioSource		playerAS;
 	private Indicator		indicator;
+	private float			timer = 0f;
 
 	private void Awake()
 	{
@@ -39,8 +45,27 @@ public class PlayerCharacter : MonoBehaviour {
 
 	private void Update()
 	{
+		if (timer != 0)
+			timer -= Time.deltaTime;
+		if (timer < 0)
+		{
+			isUpped = false;
+		}
 		if (scoreText)
 			scoreText.text = score.ToString("000");
+		if (isWinning == true)
+		{
+			Debug.Log(gameObject.name + " is winning!");
+			Color tmp = Crown.color;
+			tmp.a = 1f;
+			Crown.color = tmp;
+		}
+		else
+		{
+			Color tmp = Crown.color;
+			tmp.a = 0f;
+			Crown.color = tmp;
+		}
 	}
 
 	private void Knockback(Vector2 direction)
@@ -49,9 +74,19 @@ public class PlayerCharacter : MonoBehaviour {
 		rb.DOMove(knockbackPosition, knockbackDuration);
 	}
 
-	public void Powerup_Speed(float speedMod)
+	public void Powerup_Speed(float speedMod, float powerupDuration)
 	{
+		isUpped = true;
+		timer += powerupDuration;
 		GetComponent<CharacterController360>().speed *= speedMod;
+		playerAS.PlayOneShot(powerupAudio);
+	}
+
+	public void Powerup_Multiplier(float speedMod, float powerupDuration)
+	{
+		isUpped = true;
+		timer += powerupDuration;
+		scoreMultiplier *= 2;
 		playerAS.PlayOneShot(powerupAudio);
 	}
 
@@ -120,7 +155,7 @@ public class PlayerCharacter : MonoBehaviour {
 		{
 			if (binName == inventory[0].GetComponent<Item>().destination)
 			{
-				AddScore(inventory[0].GetComponent<Item>().scoreBonus);
+				AddScore(inventory[0].GetComponent<Item>().scoreBonus * scoreMultiplier);
 				indicator.PlayerisRight();
 				playerAS.PlayOneShot(scoreUp1Audio);
 			}
