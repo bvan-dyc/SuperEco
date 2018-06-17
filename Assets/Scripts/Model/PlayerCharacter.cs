@@ -58,7 +58,6 @@ public class PlayerCharacter : MonoBehaviour {
 	public void AddScore(int scoreMod)
 	{
 		score += scoreMod;
-		timerOn = true;
 	}
 
 	void OnCollisionEnter2D(Collision2D other)

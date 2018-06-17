@@ -6,6 +6,7 @@ using UnityStandardAssets.CrossPlatformInput;
 public class UIZone : MonoBehaviour {
 	private SceneTransition transition;
 	private bool canTransition = false;
+	public FadeIn fadein;
 
 	private void Awake()
 	{
@@ -14,7 +15,8 @@ public class UIZone : MonoBehaviour {
 
 	private void Update()
 	{
-		if (canTransition && Input.GetButtonDown("Fire1")) {
+		if (canTransition && CrossPlatformInputManager.GetButtonDown("P1_Fire1")) {
+			fadein.FadeOut();
 			transition.Transition();
 		}
 	}

@@ -17,4 +17,9 @@ public class FadeIn : MonoBehaviour {
 	{
 		screen.DOFade(0f, fadeDuration);
 	}
+
+	public void FadeOut()
+	{
+		screen.DOFade(1f, fadeDuration);
+	}
 }
