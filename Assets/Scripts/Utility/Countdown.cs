@@ -8,7 +8,7 @@ public class Countdown : MonoBehaviour {
 	[SerializeField] [Range(0, 960)] private float timeLimit = 180;
 	[SerializeField] [Range(0, 120)] private float lastStretchTime = 30;
 	[SerializeField] private Color lastStretchColor = new Color(255f, 0f, 0f);
-	private float timer;
+	public float timer;
 
 	private void Awake()
 	{
