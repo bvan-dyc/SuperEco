@@ -17,15 +17,24 @@ public class PlayerCharacter : MonoBehaviour {
 	[SerializeField] private Transform BSpawn;
 	[SerializeField] private TextMeshProUGUI scoreText;
 
+	[SerializeField] private AudioClip takeAudio;
+	[SerializeField] private AudioClip failAudio;
+	[SerializeField] private AudioClip scoreUp1Audio;
+	[SerializeField] private AudioClip powerupAudio;
+
+	[SerializeField] private float scaleDuration;
+
 	public int				score = 0;
 	private Vector2			knockbackDirection;
 	private Rigidbody2D		rb;
+	private AudioSource		playerAS;
 	private Indicator		indicator;
 
 	private void Awake()
 	{
 		rb = GetComponent<Rigidbody2D>();
 		indicator = GetComponent<Indicator>();
+		playerAS = GetComponent<AudioSource>();
 	}
 
 	private void Update()
@@ -40,14 +49,16 @@ public class PlayerCharacter : MonoBehaviour {
 		rb.DOMove(knockbackPosition, knockbackDuration);
 	}
 
-	public void Powerup()
+	public void Powerup_Speed(float speedMod)
 	{
-		GetComponent<CharacterController360>().speed *= 2;
+		GetComponent<CharacterController360>().speed *= speedMod;
+		playerAS.PlayOneShot(powerupAudio);
 	}
 
 	public void AddScore(int scoreMod)
 	{
 		score += scoreMod;
+		timerOn = true;
 	}
 
 	void OnCollisionEnter2D(Collision2D other)
@@ -67,16 +78,19 @@ public class PlayerCharacter : MonoBehaviour {
 			if (isPressed == "X" && inventoryX.Count < inventorySize) {
 				other.gameObject.transform.position = XSpawn.position;
 				other.gameObject.GetComponent<Item>().Hold();
+				playerAS.PlayOneShot(takeAudio);
 				inventoryX.Add(other.gameObject);
 			}
 			if (isPressed == "Y" && inventoryY.Count < inventorySize) {
 				other.gameObject.transform.position = YSpawn.position;
 				other.gameObject.GetComponent<Item>().Hold();
+				playerAS.PlayOneShot(takeAudio);
 				inventoryY.Add(other.gameObject);
 			}
 			if (isPressed == "B" && inventoryB.Count < inventorySize) {
 				other.gameObject.transform.position = BSpawn.position;
 				other.gameObject.GetComponent<Item>().Hold();
+				playerAS.PlayOneShot(takeAudio);
 				inventoryB.Add(other.gameObject);
 			}
 		}
@@ -109,11 +123,13 @@ public class PlayerCharacter : MonoBehaviour {
 			{
 				AddScore(inventory[0].GetComponent<Item>().scoreBonus);
 				indicator.PlayerisRight();
+				playerAS.PlayOneShot(scoreUp1Audio);
 			}
 			else
 			{
 				AddScore(-1 * inventory[0].GetComponent<Item>().scoreMalus);
 				indicator.PlayerisWrong();
+				playerAS.PlayOneShot(failAudio);
 			}
 			Destroy(inventory[0]);
 			inventory.RemoveAt(0);

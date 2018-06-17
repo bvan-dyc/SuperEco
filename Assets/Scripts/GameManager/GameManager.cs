@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
-	public GameObject canvas;
+	public GameObject	canvas;
 
 	private void Awake()
 	{

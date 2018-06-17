@@ -9,8 +9,9 @@ public class Item : MonoBehaviour {
 
 	public string	destination = "";
 	[SerializeField] private bool	simulated;
-	[SerializeField] private float spawnDuration = 0.2f;
+	[SerializeField] private float	spawnDuration = 0.2f;
 	[Range(0, 50)] public float		speed = 5;
+	[Range(0, 5)] [SerializeField] private float	scaleTo = 1.5f;
 	[SerializeField] private GameObject	colliderObject;
 
 	private Collider2D c2d;
@@ -24,16 +25,12 @@ public class Item : MonoBehaviour {
 
 	public void Start()
 	{
-		transform.DOScale(1.2f, spawnDuration);
+		transform.DOScale(1.5f, spawnDuration);
 	}
 
 	public void Update() {
-		bool timerOn = true;
-		float timer = 0f;
-	
-		if (timerOn && timer == 1.2)
+		if (transform.localScale.x >= scaleTo)
 		{
-			timerOn = false;
 			transform.DOScale(1f, spawnDuration);
 		}
 		if (simulated)
@@ -45,4 +42,3 @@ public class Item : MonoBehaviour {
 		c2d.enabled = true;
 	}
 }
-

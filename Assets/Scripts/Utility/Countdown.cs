@@ -6,6 +6,8 @@ using TMPro;
 public class Countdown : MonoBehaviour {
 	private TextMeshProUGUI scoreText;
 	[SerializeField] [Range(0, 960)] private float timeLimit = 180;
+	[SerializeField] [Range(0, 120)] private float lastStretchTime = 30;
+	[SerializeField] private Color lastStretchColor = new Color(255f, 0f, 0f);
 	private float timer;
 
 	private void Awake()
@@ -22,6 +24,11 @@ public class Countdown : MonoBehaviour {
 	{
 		if (timer != 0)
 			timer -= Time.deltaTime;
+		if (timer <= lastStretchTime)
+		{
+			scoreText.color = lastStretchColor;
+			Debug.Log("TimeIsRunningOut");
+		}
 		if (timer < 0)
 		{
 			timer = 0;
