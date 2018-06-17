@@ -15,15 +15,17 @@ public class PlayerCharacter : MonoBehaviour {
 	[SerializeField] private Transform XSpawn;
 	[SerializeField] private Transform YSpawn;
 	[SerializeField] private Transform BSpawn;
+	[SerializeField] private TextMeshProUGUI scoreText;
 
 	public int				score = 0;
 	private Vector2			knockbackDirection;
 	private Rigidbody2D		rb;
-	public TextMeshProUGUI	scoreText;
+	private Indicator		indicator;
 
 	private void Awake()
 	{
 		rb = GetComponent<Rigidbody2D>();
+		indicator = GetComponent<Indicator>();
 	}
 
 	private void Update()
@@ -106,9 +108,13 @@ public class PlayerCharacter : MonoBehaviour {
 			if (binName == inventory[0].GetComponent<Item>().destination)
 			{
 				AddScore(inventory[0].GetComponent<Item>().scoreBonus);
+				indicator.PlayerisRight();
 			}
 			else
-				AddScore(inventory[0].GetComponent<Item>().scoreMalus);
+			{
+				AddScore(-1 * inventory[0].GetComponent<Item>().scoreMalus);
+				indicator.PlayerisWrong();
+			}
 			Destroy(inventory[0]);
 			inventory.RemoveAt(0);
 		}

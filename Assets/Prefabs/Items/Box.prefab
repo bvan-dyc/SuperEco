@@ -183,7 +183,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5bd848624c0ba64b9a68152a16607b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 5
+  scoreBonus: 4
+  scoreMalus: 3
+  destination: Compost
+  simulated: 0
+  spawnDuration: 0.2
   speed: 5
   colliderObject: {fileID: 1316506331496064}
 --- !u!212 &212424695365997338

@@ -183,9 +183,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5bd848624c0ba64b9a68152a16607b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreBonus: 1
-  scoreMalus: 1
-  destination: 
+  scoreBonus: 5
+  scoreMalus: 4
+  destination: BlackBin
   simulated: 0
   spawnDuration: 0.2
   speed: 5

@@ -25,10 +25,17 @@ public class Item : MonoBehaviour {
 	public void Start()
 	{
 		transform.DOScale(1.2f, spawnDuration);
-		transform.DOScale(1f, spawnDuration);
 	}
 
 	public void Update() {
+		bool timerOn = true;
+		float timer = 0f;
+	
+		if (timerOn && timer == 1.2)
+		{
+			timerOn = false;
+			transform.DOScale(1f, spawnDuration);
+		}
 		if (simulated)
 			rb.velocity = Vector2.down * speed;
 	}

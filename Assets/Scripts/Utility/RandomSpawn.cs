@@ -13,7 +13,7 @@ public class RandomSpawn : MonoBehaviour {
 	[SerializeField] private float minY = -4f;
 
 	private GameObject toSpawn;
-	const float RADIUS = 1f;
+	const float RADIUS = 2f;
 
 	private void Start () {
 		InvokeRepeating("SpawnItem", initSpawnDelay, spawnDelay);
